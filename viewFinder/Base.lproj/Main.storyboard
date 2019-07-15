@@ -13,7 +13,7 @@
         <!--View Finder👀-->
         <scene sceneID="TnM-ns-C2I">
             <objects>
-                <tableViewController id="0ld-Kt-IWO" sceneMemberID="viewController">
+                <tableViewController id="0ld-Kt-IWO" customClass="PhotoTableViewController" customModule="viewFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Yih-7n-854">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -54,7 +54,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ac8005751720319cc66b3060cfe34b29" translatesAutoresizingMaskIntoConstraints="NO" id="sUP-O0-9uI">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="sUP-O0-9uI">
                                 <rect key="frame" x="87" y="161" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -66,9 +66,12 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0M-s2-uzi">
-                                <rect key="frame" x="140" y="396" width="152" height="30"/>
+                                <rect key="frame" x="140" y="394" width="152" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save this Photo"/>
+                                <connections>
+                                    <action selector="savePhotoTapped:" destination="9d3-iz-Tu1" eventType="touchUpInside" id="00P-oX-PVw"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vo1-wv-hJg">
                                 <rect key="frame" x="43" y="511" width="118" height="101"/>
@@ -94,6 +97,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add New Photo" id="SNM-xm-JX3"/>
                     <connections>
+                        <outlet property="captionText" destination="Nof-9F-pbk" id="u3a-Ul-yhq"/>
                         <outlet property="imageView" destination="sUP-O0-9uI" id="T65-E4-b7i"/>
                     </connections>
                 </viewController>
@@ -121,6 +125,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ac8005751720319cc66b3060cfe34b29" width="1024" height="861"/>
+        <image name="image" width="1024" height="861"/>
     </resources>
 </document>
