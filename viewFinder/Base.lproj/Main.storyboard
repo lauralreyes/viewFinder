@@ -49,7 +49,7 @@
         <!--Add New Photo-->
         <scene sceneID="ojK-HA-9BH">
             <objects>
-                <viewController id="9d3-iz-Tu1" sceneMemberID="viewController">
+                <viewController id="9d3-iz-Tu1" customClass="AddPhotoViewController" customModule="viewFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hJM-go-BWR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -75,18 +75,27 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="Camera"/>
+                                <connections>
+                                    <action selector="cameraTapped:" destination="9d3-iz-Tu1" eventType="touchUpInside" id="bal-W7-ojd"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bjx-iB-3T7">
                                 <rect key="frame" x="212" y="543" width="152" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title=" Album"/>
+                                <connections>
+                                    <action selector="albumsTapped:" destination="9d3-iz-Tu1" eventType="touchUpInside" id="KgI-IS-735"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="s35-Uc-qTg"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add New Photo" id="SNM-xm-JX3"/>
+                    <connections>
+                        <outlet property="imageView" destination="sUP-O0-9uI" id="T65-E4-b7i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LKs-Qw-Y2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
