@@ -41,10 +41,37 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="KxW-zs-E7T" kind="show" identifier="moveToDetail" id="of2-fi-Z2T"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2h9-t0-l4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1010.144927536232" y="120.53571428571428"/>
+        </scene>
+        <!--Photo Detail View Controller-->
+        <scene sceneID="DOc-WT-2Ni">
+            <objects>
+                <viewController id="KxW-zs-E7T" customClass="PhotoDetailViewController" customModule="viewFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zle-aF-RiC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R2h-M2-yId">
+                                <rect key="frame" x="49" y="135" width="317" height="436"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="HEs-f9-NNs"/>
+                    </view>
+                    <connections>
+                        <outlet property="photoDetailView" destination="R2h-M2-yId" id="t4M-av-cFh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="scZ-ud-2Lx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1008.6956521739131" y="947.54464285714278"/>
         </scene>
         <!--Add New Photo-->
         <scene sceneID="ojK-HA-9BH">
