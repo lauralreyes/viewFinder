@@ -9,37 +9,58 @@
 import UIKit
 
 class PhotoTableViewController: UITableViewController {
+    
     var photos : [Photos] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
+    
 
     // MARK: - Table view data source
     
     func getPhotos() {
-        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-            if let coreDataPhotos = try? context.fetch(Photos.fetchRequest()) as? [Photos] {
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+        {
+            if let coreDataPhotos = try? context.fetch(Photos.fetchRequest()) as? [Photos]{
                  photos = coreDataPhotos
+                 tableView.reloadData()
+            }
+        }
     }
-          
-            tableView.reloadData()
 //WE LEFT OFF HERE
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+   
+            override func viewWillAppear(_ animated: Bool) {
+                getPhotos()
+            }
+    
+   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 10
+        return photos.count
     }
+       
 
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        let cell = UITableViewCell()
-       cell.textLabel?.text = "Laura is awesome!"
-        cell.imageView?.image = UIImage(named: "image")
+        
+        let cellPhoto = photos[indexPath.row]
+        cell.textLabel?.text = cellPhoto.caption
+        
+        if let cellPhotoImageData = cellPhoto.image {
+            if let cellPhotoImage = UIImage(data: cellPhotoImageData) {
+                cell.imageView?.image = cellPhotoImage
+            }
+        }
+//       cell.textLabel?.text = "Laura is awesome!"
+//        cell.imageView?.image = UIImage(named: "image")
         
         return cell
     }
@@ -91,3 +112,4 @@ class PhotoTableViewController: UITableViewController {
     */
 
 }
+
